@@ -8,6 +8,7 @@
 * **NonCopyable** - similar to *boost::noncopyable*, but it uses C++11's = delete syntax.
 * **Platform Detection** - it checks for some macros to determine the platform and defines some unified macros (WINDOWS, LINUX, MAC)
 * **Timer / Clock** - similar to SFML's Clock class, but uses C++11's <chrono> library. It also determines and uses the highest resolution monotonic clock available on the target platform.
+* **Hybrid Graphics support** - if you build an app / DLL with the file HybridGraphics.cpp, it will force systems with NVIDIA Optimus / AMD Power Xpress to use the dedicate graphics card.
 
 # Licence
  The code in this repo can be considered public domain, being licensed under the [Unlicense](http://unlicense.org/).
