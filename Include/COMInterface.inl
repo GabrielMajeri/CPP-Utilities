@@ -154,7 +154,7 @@ void swap(COMInterface<I>& lhs, COMInterface<I>& rhs) noexcept
 }
 
 template <typename I>
-constexpr static auto COMInterface<I>::getUUID() noexcept
+constexpr auto COMInterface<I>::getUUID() noexcept
 {
 	return __uuidof(I);
 }
