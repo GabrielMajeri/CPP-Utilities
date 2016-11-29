@@ -53,41 +53,30 @@ inline void PImpl<T>::create(Ts&&... values)
 	ptr = new T{ std::forward<Ts>(values)... };
 }
 
-/// This class is used to hide the constructors and destructors of the implementation.
-/// This forces users of PImpl to only call constructors and destructors of this class.
-template <typename T>
-struct HideImplementation
-	: public T
-{
-private:
-	HideImplementation() = default;
-	~HideImplementation() = default;
-};
-
 template<typename T>
 inline auto* PImpl<T>::operator->() noexcept
 {
 	assert(ptr);
-	return reinterpret_cast<HideImplementation<T>*>(ptr);
+	return ptr;
 }
 
 template<typename T>
 inline const auto* PImpl<T>::operator->() const noexcept
 {
 	assert(ptr);
-	return reinterpret_cast<HideImplementation<const T>*>(ptr);
+	return ptr;
 }
 
 template<typename T>
 inline auto& PImpl<T>::operator*() noexcept
 {
 	assert(ptr);
-	return *reinterpret_cast<HideImplementation<T>*>(ptr);
+	return ptr;
 }
 
 template<typename T>
 inline const auto& PImpl<T>::operator*() const noexcept
 {
 	assert(ptr);
-	return *reinterpret_cast<HideImplementation<const T>*>(ptr);
+	return ptr;
 }
