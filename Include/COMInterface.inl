@@ -11,6 +11,9 @@
 
 using GUID = _GUID;
 
+// Ensure IUnknown doesn't get redefined later.
+#define __IUnknown_INTERFACE_DEFINED__
+
 struct IUnknown
 {
 public:
@@ -18,6 +21,8 @@ public:
 	virtual unsigned long AddRef() = 0;
 	virtual unsigned long Release() = 0;
 };
+
+using LPUNKNOWN = IUnknown*;
 
 template <typename I>
 struct RemoveIUnknown : public I
