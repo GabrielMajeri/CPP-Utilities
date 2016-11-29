@@ -126,28 +126,28 @@ template <typename I>
 auto* COMInterface<I>::operator->() noexcept
 {
 	assert(ptr);
-	return reinterpret_cast<RemoveIUnknown*>(ptr);
+	return reinterpret_cast<RemoveIUnknown<I>*>(ptr);
 }
 
 template <typename I>
 const auto* COMInterface<I>::operator->() const noexcept
 {
 	assert(ptr);
-	return reinterpret_cast<RemoveIUnknown*>(ptr);
+	return reinterpret_cast<RemoveIUnknown<I>*>(ptr);
 }
 
 template <typename I>
 auto& COMInterface<I>::operator*() noexcept
 {
 	assert(ptr);
-	return *reinterpret_cast<RemoveIUnknown*>(ptr);
+	return *reinterpret_cast<RemoveIUnknown<I>*>(ptr);
 }
 
 template <typename I>
 const auto& COMInterface<I>::operator*() const noexcept
 {
 	assert(ptr);
-	return *reinterpret_cast<RemoveIUnknown*>(ptr);
+	return *reinterpret_cast<RemoveIUnknown<I>*>(ptr);
 }
 
 template <typename I>
