@@ -71,12 +71,12 @@ template<typename T>
 inline auto& PImpl<T>::operator*() noexcept
 {
 	assert(ptr);
-	return ptr;
+	return *ptr;
 }
 
 template<typename T>
 inline const auto& PImpl<T>::operator*() const noexcept
 {
 	assert(ptr);
-	return ptr;
+	return *ptr;
 }
